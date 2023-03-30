@@ -1,0 +1,40 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC connection pool settings -->
+        <property name="connection.pool_size">5</property>
+
+        <!-- set the jdbc url -->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/new_java_class</property>
+
+        <!-- set the jdbc username -->
+        <property name="hibernate.connection.username">root</property>
+
+        <!-- set the jdbc password -->
+        <property name="hibernate.connection.password">Birgunj39#</property>
+
+        <!-- set the my driver class -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <!-- Dialect helps us to convert HQL(ORM) to corresponding sql -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- All the executed sql scripts will be be visible in console -->
+        <property name="show_sql">true</property>
+
+        <!-- Create : Every time on start of application drop the existing table and re-create
+             update : Once table created will never drop even at the time of start of application -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+
+        <!-- set the current session context -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- for xml configuration all the hibernate mapping files need to be configure here-->
+        <mapping resource="xmlConfiguration/resident.hbm.xml"/>
+        <mapping resource="xmlConfiguration/vehicle.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

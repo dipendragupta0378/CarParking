@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.carparking.entity.VechicleInFo" table="vehicle_info">
+        <!-- Primary key of a table-->
+        <!-- Composite Key declaration -->
+        <!--<composite-id>
+            <key-property name="studId" column="stud_id" type="int"/>
+            <key-property name="rollNumber" column="stud_roll" type="int"/>
+        </composite-id>-->
+        <id name="vechicleId" type="int" column="vechicle_Id">
+            <generator class="native"/>
+            <!--<generator class="identity"/>-->
+        </id>
+
+
+        <!-- all other column -->
+        <property name="vechicleType" column="vehicle_Type" type="int"/>
+        <property name="vechicleName" column="vechicle_Name" type="java.lang.String"/>
+        <property name="registrationNumber" column="registration_Number" type="int"/>
+        <many-to-one name="residentInformation" class="com.carparking.entity.ResidentInformation" column="residentId" cascade="all" unique="true"/>
+    </class>
+</hibernate-mapping>
+

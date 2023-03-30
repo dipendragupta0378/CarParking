@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.carparking.entity.ResidentInformation" table="resident_info">
+        <!-- Primary key of a table-->
+        <!-- Composite Key declaration -->
+        <!--<composite-id>
+            <key-property name="studId" column="stud_id" type="int"/>
+            <key-property name="rollNumber" column="stud_roll" type="int"/>
+        </composite-id>-->
+        <id name="residentId" type="int" column="resident_Id">
+            <generator class="native"/>
+            <!--<generator class="identity"/>-->
+        </id>
+        <!-- all other column -->
+        <property name="name" column="name" type="java.lang.String"/>
+        <property name="email" column="email" type="java.lang.String"/>
+        <property name="apt" column="apt" type="int"/>
+        <property name="mobNumber" column="mobile_Number" type="long"/>
+
+
+    </class>
+</hibernate-mapping>
+
